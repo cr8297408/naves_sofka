@@ -15,7 +15,7 @@ class SpaceShipClass {
    * @param {*} velocity 
    * @param {*} height 
    */
-  constructor(name, weight, pushPower, type, fuel, velocity, height, destinity, enginesNumber){
+  constructor(name, weight, pushPower, type, fuel, velocity, height, destinity, enginesNumber, earthDistance, landing, landingSystem, objective, landingPlace){
     this.name = name,
     this.weight = weight,
     this.pushPower = pushPower,
@@ -24,21 +24,26 @@ class SpaceShipClass {
     this.velocity = velocity,
     this.height = height,
     this.destinity = destinity,
-    this.enginesNumber = enginesNumber
+    this.enginesNumber = enginesNumber,
+    this.earthDistance = earthDistance, 
+    this.landing = landing, 
+    this.landingSystem = landingSystem, 
+    this.objective = objective, 
+    this.landingPlace = landingPlace
   }
 
   /**
    * metodo para obtener la informacion basica de la nave 
    */
   obtenerInformacion(){
-    const mensaje = `la nave con nombre: ${this.name}, tiene un empuje de ${this.pushPower} toneladas y ${this.enginesNumber} propulsores` 
+    const mensaje = `la nave con nombre: ${this.name}, tiene un empuje de ${this.pushPower} toneladas y ${this.enginesNumber} propulsores y su objetivo es ${this.objective}` 
     return mensaje
   }
   /**
    * metodo para empezar el despiegue la nave...
    */
   startShip(){
-    const mensaje = `ha iniciado el lanzamiento de la nave de nombre ${this.name} con destino ${this.destinity}`
+    const mensaje = `ha iniciado el lanzamiento de la nave de nombre ${this.name} con destino ${this.destinity} la cual alcanzará una distancia con respecto a la tierra de ${this.earthDistance}`
     return mensaje
   }
 
@@ -47,7 +52,27 @@ class SpaceShipClass {
    */
    get getDestinity(){
     return this.destinity
-  } 
+  }
+  
+  get getEarthDistance(){
+    return this.earthDistance
+  }
+
+  get getLanding(){
+    return this.landing
+  }
+
+  get getLandingSystem(){
+    return this.landingSystem
+  }
+
+  get getObjective(){
+    return this.objective
+  }
+
+  get getLandingPlace(){
+    return this.landingPlace
+  }
   
   get getEnginesNumber(){
     return this.enginesNumber
@@ -83,6 +108,26 @@ class SpaceShipClass {
   /**
    * SEETERS
    */
+
+   set setEarthDistance(earthDistance){
+    this.earthDistance = earthDistance
+  }
+
+  set setLanding(landing){
+    this.landing = landing
+  }
+
+  set setLandingSystem(landingSystem){
+    this.landingSystem = landingSystem
+  }
+
+  set setObjective(objective){
+    this.objective = objective
+  }
+
+  set setLandingPlace(landingPlace){
+    this.landingPlace = landingPlace
+  }
 
   set setDestinity(destinity){
     this.destinity = destinity

@@ -40,7 +40,24 @@ const SpaceShip = sequelize.define('SpaceShip', {
   },
   enginesNumber: {
     type: DataTypes.FLOAT
-  }
+  },
+  earthDistance: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  landing: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: true
+  },
+  landingSystem: {
+    type: DataTypes.STRING
+  },
+  objective: {
+    type: DataTypes.STRING
+  },
+  landingPlace: {
+    type: DataTypes.STRING
+  },
 },{
   tableName: "spaceShips",
   timestamps: true

@@ -23,6 +23,11 @@ class SpaceChipValidation {
         height: Joi.number(),
         destinity: Joi.string().required(),
         enginesNumber: Joi.number(),
+        earthDistance: Joi.string().required(), 
+        landing: Joi.boolean(), 
+        landingSystem: Joi.string(), 
+        objective: Joi.string(), 
+        landingPlace: Joi.string()
       })
 
       return schema.validate(body)

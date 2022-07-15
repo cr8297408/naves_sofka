@@ -1,20 +1,20 @@
-const NotManned = require('../models');
+const SpaceCraft = require('../models');
 const db = require('../../../config/connection');
-const NotMannedClass = require('../models/class');
-const notMannedValidation = require('../validations');
+const SpaceCraftClass = require('../models/class');
+const spaceCraftValidation = require('../validations');
 const HttpResponse = require('../../response');
 const Pagination = require('../../../middlewares/pagination');
 
 sequelize = db.sequelize;
 
-class NotMannedService {
+class SpaceCraftService {
   /**
    * @returns array de naves espaciales
-   * @memberof NotMannedService
+   * @memberof SpaceCraftService
    */
   async findAll(){
     try {
-      const spacesShip = await NotManned.findAll() 
+      const spacesShip = await SpaceCraft.findAll() 
       return new HttpResponse(200, spacesShip);
     } catch (error) {
       return new HttpResponse(400, error.message);
@@ -23,7 +23,7 @@ class NotMannedService {
 
   async findOne(id){
     try {
-      const validate = notMannedValidation.getSpaceShip(id);
+      const validate = spaceCraftValidation.getSpaceShip(id);
       if (validate.error) {
         return new HttpResponse(400, validate.error);
       }
@@ -36,12 +36,12 @@ class NotMannedService {
 
   async create(name, weight, pushPower, type, fuel, velocity, height, destinity, enginesNumber){
     try {
-      let object = {name, weight, pushPower, type, fuel, velocity, height, destinity, enginesNumber}
-      const validate = notMannedValidation.createSpaceShip(object);
+      let object = {name, weight, pushPower, type, fuel, velocity, height,destinity,enginesNumber,orbitLevel, altitude, earthDistance, landing, landingSystem, objective, landingPlace}
+      const validate = spaceCraftValidation.createSpaceShip(object);
       if (validate.error) {
         return new HttpResponse(400, validate.error);
       }
-      const newSpaceShip = new NotMannedClass(name, weight, pushPower, type, fuel, velocity, height)
+      const newSpaceShip = new NotMannedClass(name, weight, pushPower, type, fuel, velocity, height,destinity,enginesNumber,orbitLevel, altitude, earthDistance, landing, landingSystem, objective, landingPlace)
     
       const createdShip = await NotManned.create(newSpaceShip);
       return new HttpResponse(200, 'hola viajero, tu nave está lista para ser utilizada');
@@ -52,7 +52,7 @@ class NotMannedService {
 
   async update(id, body){
     try {
-      const validate = notMannedValidation.getSpaceShip(id);
+      const validate = spaceCraftValidation.getSpaceShip(id);
       if (validate.error) {
         return new HttpResponse(400, validate.error);
       }
@@ -65,7 +65,12 @@ class NotMannedService {
         velocity: body.velocity,
         height: body.height,
         destinity: body.destinity,
-        enginesNumber: body.enginesNumber
+        enginesNumber: body.enginesNumber,
+        earthDistance: body.earthDistance, 
+        landing: body.landing, 
+        landingSystem: body.landingSystem, 
+        objective: body.objective, 
+        landingPlace: body.landingPlace
       }, {
         where: {id}
       });
@@ -77,7 +82,7 @@ class NotMannedService {
 
   async delete(id){
     try {
-      const validate = notMannedValidation.getSpaceShip(id);
+      const validate = spaceCraftValidation.getSpaceShip(id);
       if (validate.error) {
         return new HttpResponse(400, validate.error);
       }
@@ -93,7 +98,7 @@ class NotMannedService {
 
   async findPagination(sizeAsNumber, pageAsNumber, wherecond){
     try {
-      let query = `SELECT * FROM notManneds WHERE name LIKE '%${wherecond}%' OR destinity LIKE '%${wherecond}%'`
+      let query = `SELECT * FROM spaceCrafts WHERE name LIKE '%${wherecond}%' OR destinity LIKE '%${wherecond}%' OR objective LIKE '%${wherecond}%'`
       const spacesShips = await Pagination(sequelize, sizeAsNumber, pageAsNumber, query);
       return new HttpResponse(200, spacesShips);
     } catch (error) {

@@ -8,8 +8,10 @@ const ShuttleRouter = require('./shuttle');
 const MannedRouter = require('./manned');
 /**obtengo el router de naves no tripuladas */
 const NotMannedRouter = require('./notManned');
-/**obtengo el router de naves no tripuladas */
+/**obtengo el router de satellites*/
 const SatelliteRouter = require('./satellite');
+/**obtengo el router de las sondas espaciales*/
+const SpaceCraftRouter = require('./spaceCraft');
 
 /**asigno una ruta al router de naves espaciales*/
 router.use('/v1/spacesShips', SpaceChipRouter);
@@ -21,5 +23,7 @@ router.use('/v1/manneds', MannedRouter);
 router.use('/v1/notManneds', NotMannedRouter);
 /** asigno una ruta al router de satellites */
 router.use('/v1/satellites', SatelliteRouter);
+/** asigno una ruta al router de satellites */
+router.use('/v1/spaceCrafts', SpaceCraftRouter);
 
 module.exports = router;
