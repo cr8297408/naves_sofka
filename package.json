@@ -1,0 +1,26 @@
+{
+  "name": "sofka_u_naves",
+  "version": "1.0.0",
+  "author": "Cesar Augusto Ruiz Puentes",
+  "description": "application of spaceships.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "migrate": "npx sequelize db:migrate",
+    "desmigrate": "npx sequelize db:migrate:undo:all",
+    "desmigrateOne": "npx sequelize db:migrate:undo --name",
+    "seeders": "npx sequelize db:seed:all",
+    "deseeds": "npx sequelize db:seed:undo:all",
+    "createMigration": "npx sequelize migration:create --name"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
