@@ -8,6 +8,7 @@ const development = {
   DB_USER: process.env.DB_USER,
   DB_HOST: process.env.DB_HOST,
   DB_DIALECT: process.env.DB_DIALECT || 'mysql',
+  URL_SWAGGER: process.env.URL_SWAGGER
 }
 
 
