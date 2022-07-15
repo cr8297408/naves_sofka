@@ -35,7 +35,7 @@ class SpaceCraftComponents {
         landingSystem, 
         objective, 
         landingPlace} = req.body;
-      const spacesShips = await SpaceCraftService.create(name, weight, pushPower, type, fuel, velocity, height,destinity,enginesNumber,orbitLevel, altitude, earthDistance, landing, landingSystem, objective, landingPlace)
+      const spacesShips = await SpaceCraftService.create(name, weight, pushPower, type, fuel, velocity, height,destinity,enginesNumber, earthDistance, landing, landingSystem, objective, landingPlace)
       res.status(spacesShips.status).json(spacesShips.message);
     } catch (error) {
       res.json(error.message)

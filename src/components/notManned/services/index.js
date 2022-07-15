@@ -56,7 +56,7 @@ class NotMannedService {
       if (validate.error) {
         return new HttpResponse(400, validate.error);
       }
-      await SpaceShip.update({
+      await NotManned.update({
         name: body.name,
         weight: body.weight,
         pushPower: body.pushPower,

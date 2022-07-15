@@ -27,23 +27,23 @@ class SpaceCraftService {
       if (validate.error) {
         return new HttpResponse(400, validate.error);
       }
-      const spaceShip = await NotManned.findByPk(id);
+      const spaceShip = await SpaceCraft.findByPk(id);
       return new HttpResponse(200, spaceShip);
     } catch (error) {
       return new HttpResponse(400, error.message);
     }
   }
 
-  async create(name, weight, pushPower, type, fuel, velocity, height, destinity, enginesNumber){
+  async create(name, weight, pushPower, type, fuel, velocity, height,destinity,enginesNumber, earthDistance, landing, landingSystem, objective, landingPlace){
     try {
-      let object = {name, weight, pushPower, type, fuel, velocity, height,destinity,enginesNumber,orbitLevel, altitude, earthDistance, landing, landingSystem, objective, landingPlace}
+      let object = {name, weight, pushPower, type, fuel, velocity, height,destinity,enginesNumber, earthDistance, landing, landingSystem, objective, landingPlace}
       const validate = spaceCraftValidation.createSpaceShip(object);
       if (validate.error) {
         return new HttpResponse(400, validate.error);
       }
-      const newSpaceShip = new NotMannedClass(name, weight, pushPower, type, fuel, velocity, height,destinity,enginesNumber,orbitLevel, altitude, earthDistance, landing, landingSystem, objective, landingPlace)
+      const newSpaceShip = new SpaceCraftClass(name, weight, pushPower, type, fuel, velocity, height,destinity,enginesNumber, earthDistance, landing, landingSystem, objective, landingPlace)
     
-      const createdShip = await NotManned.create(newSpaceShip);
+      const createdShip = await SpaceCraft.create(newSpaceShip);
       return new HttpResponse(200, 'hola viajero, tu nave está lista para ser utilizada');
     } catch (error) {
       return new HttpResponse(400, error.message);
@@ -56,7 +56,7 @@ class SpaceCraftService {
       if (validate.error) {
         return new HttpResponse(400, validate.error);
       }
-      await SpaceShip.update({
+      await SpaceCraft.update({
         name: body.name,
         weight: body.weight,
         pushPower: body.pushPower,
@@ -87,7 +87,7 @@ class SpaceCraftService {
         return new HttpResponse(400, validate.error);
       }
 
-      const spaceShip = await NotManned.findByPk(id);
+      const spaceShip = await SpaceCraft.findByPk(id);
 
       await spaceShip.destroy()
       return new HttpResponse(200, 'los datos de la nave se han eliminado...');
@@ -107,4 +107,4 @@ class SpaceCraftService {
   }
 }
 
-module.exports = new NotMannedService();
+module.exports = new SpaceCraftService();

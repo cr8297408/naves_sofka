@@ -56,7 +56,7 @@ class SatelliteService {
       if (validate.error) {
         return new HttpResponse(400, validate.error);
       }
-      await SpaceShip.update({
+      await Satellite.update({
         name: body.name,
         weight: body.weight,
         pushPower: body.pushPower,

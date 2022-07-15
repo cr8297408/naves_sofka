@@ -198,10 +198,10 @@ router.post('/pagination', SpaceCraftComponent.findPagination)
   *              height: 700
   *              destinity: marte
   *              enginesNumber: 6
-  *              earthDistance: cinco mil km, 
-  *              landing: true, 
-  *              landingSystem: sitema moderno, 
-  *              objective: aterrizaje en marte, 
+  *              earthDistance: cinco mil km
+  *              landing: true
+  *              landingSystem: sitema moderno 
+  *              objective: aterrizaje en marte 
   *              landingPlace: marte
   *      pagination:
   *          type: string

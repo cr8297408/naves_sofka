@@ -56,10 +56,6 @@ const Shuttle = sequelize.define('Shuttle', {
   timestamps: true
 });
 
-SpaceShip.hasOne(Shuttle, {
-  foreignKey: 'SpaceShipId'
-})
-
 Shuttle.belongsTo(SpaceShip)
 
 module.exports = Shuttle;

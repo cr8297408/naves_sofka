@@ -59,7 +59,7 @@ const SpaceShip = sequelize.define('SpaceShip', {
     type: DataTypes.STRING
   },
 },{
-  tableName: "spaceShips",
+  tableName: "spaceCrafts",
   timestamps: true
 });
 

@@ -52,20 +52,6 @@ module.exports = {
         type: DataTypes.FLOAT,
         allowNull: false
       },
-      SpaceShipId: {
-        type: DataTypes.STRING,
-        foreignkey: true,
-        references: {
-          model: 'spaceShips',
-          key: 'id'
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-      },
-      createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: new Date()
-      },
       updatedAt: {
         type: DataTypes.DATE,
         defaultValue: new Date()
