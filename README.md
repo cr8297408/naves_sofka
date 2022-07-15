@@ -25,7 +25,7 @@
 
 # en caso de querer ensayar la app desplegada en heroku visitar:
 
-- 
+- https://espace-ships.herokuapp.com/api-docs
 
 # los endpoints de paginaciones, son dinamicos, puedes escribir un string cualquiera en el campo where y la api te devolverá las coincidencias con ciertos campos de la nave
 
